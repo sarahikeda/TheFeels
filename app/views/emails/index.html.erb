@@ -1,10 +1,12 @@
 <div class="container">
   <h1 class="email-title">Upload Your Email</h1>
   <div class="form-group">
-    <label for="comment">Paste Here:</label>
-    <textarea class="form-control" rows="3" id="comment"></textarea>
-    <br>
-    <button class="email btn btn-warning" type="submit">Analyze Sentiment</button>
+    <%= form_for :email do |f| %>
+      <%= f.label "Paste Here:" %>
+      <br>
+      <%= f.text_area :text %>
+      <%= button_to "Analyze", { controller: "emails", action: "create"}, class: "email btn btn-warning" %>
+    <% end %>
   </div>
   <br>
   <%= link_to 'New Email', new_email_path %>
