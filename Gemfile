@@ -8,6 +8,7 @@ gem 'rails', RAILS_VERSION
 gem "json"
 gem 'sqlite3'
 gem 'bcrypt'
+gem 'pry'
 
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.6'
