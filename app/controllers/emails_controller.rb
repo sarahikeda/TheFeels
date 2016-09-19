@@ -32,9 +32,9 @@ class EmailsController < ApplicationController
   # POST /emails.json
   def create
     @email = Email.new(email_params)
-
     respond_to do |format|
       if @email.save
+        analyze_sentiment
         format.html { redirect_to @email, notice: 'Email was successfully created.' }
         format.json { render :show, status: :created, location: @email }
       else
@@ -69,13 +69,16 @@ class EmailsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_email
       @email = Email.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def email_params
-      params[:email]
+      params.require(:email).permit(:name, :text, :user_id, :partner_id, :relationship_id)
     end
+
+    def analyze_sentiment
+      @email
+    end
+
 end
