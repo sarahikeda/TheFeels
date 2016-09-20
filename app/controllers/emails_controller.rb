@@ -35,7 +35,7 @@ class EmailsController < ApplicationController
     respond_to do |format|
       if @email.save
         analyze_sentiment
-        format.html { redirect_to @email, notice: 'Email was successfully created.' }
+        format.html { redirect_to @email }
         format.json { render :show, status: :created, location: @email }
       else
         format.html { render :new }
@@ -78,7 +78,9 @@ class EmailsController < ApplicationController
     end
 
     def analyze_sentiment
-      @email
+      sentiment_service = SentimentAnalyzerService.new
+      sentiment_service.get_sentiment(@email)
+      sentiment_service.get_sentiment_score(@email)
     end
 
 end
