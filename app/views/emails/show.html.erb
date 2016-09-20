@@ -1,4 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_email_path(@email) %> |
-<%= link_to 'Back', emails_path %>
+<div class="container">
+  <h1>Email Results </h1>
+  <div class ="email-feedback">
+    <%= @email.sentiment.titleize %>
+    <br>
+    <%= @email.score %>
+    <br>
+    <div class="form-group">
+      <%= @email.text %>
+    </div>
+  </div>
+  <%= link_to 'Edit', edit_email_path(@email) %> |
+  <%= link_to 'Back', emails_path %>
+</div>
