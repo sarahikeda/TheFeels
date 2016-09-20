@@ -4,7 +4,8 @@
     <%= form_for :email do |f| %>
       <%= f.label "Paste Here:" %>
       <br>
-      <%= f.text_area :text %>
+      <%= f.text_area :text, class: "form-control form-group-lg" %>
+      <br>
       <%= button_to "Analyze", { controller: "emails", action: "create"}, class: "email btn btn-warning" %>
     <% end %>
   </div>
