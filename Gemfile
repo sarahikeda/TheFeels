@@ -9,6 +9,8 @@ gem "json"
 gem 'sqlite3'
 gem 'bcrypt'
 gem 'pry'
+# sentiment analysis
+gem 'sentimental'
 
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.6'
