@@ -17,3 +17,13 @@
 .email.btn.btn-warning {
   float: right;
 }
+
+#positive {
+  color: #3fb618;
+  font-size: 20px;
+}
+
+#negative {
+  color: #ec1818;
+  font-size: 20px;
+}

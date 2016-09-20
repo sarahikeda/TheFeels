@@ -1,13 +1,20 @@
 <div class="container">
   <h1>Email Results </h1>
   <div class ="email-feedback">
+    <% if @email.score >= 0.0 %>
+      <p id="positive">
+    <% else %>
+      <p id="negative">
+    <% end %>
     <%= @email.sentiment.titleize %>
     <br>
     <%= @email.score %>
+      </p>
     <br>
-    <div class="form-group">
-      <%= @email.text %>
+    <div id="email-content">
+      <p><%= @email.text %></p>
     </div>
+    <!-- graph -->
   </div>
   <%= link_to 'Edit', edit_email_path(@email) %> |
   <%= link_to 'Back', emails_path %>
