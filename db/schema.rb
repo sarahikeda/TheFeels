@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160920174718) do
 
   create_table "emails", force: :cascade do |t|
     t.string   "name"
+    t.string   "subject"
     t.string   "text"
     t.integer  "user_id"
     t.integer  "partner_id"
@@ -36,14 +37,17 @@ ActiveRecord::Schema.define(version: 20160920174718) do
     t.string   "name"
     t.integer  "user_id"
     t.integer  "partner_id"
+    t.datetime "start_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "username"
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
+    t.text     "bio"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
