@@ -14,7 +14,30 @@
  *= require_self
  */
 
-.email.btn.btn-warning {
+body {
+  background-color: rgba(240, 0, 44, 0.68) !important;
+}
+
+.email-form {
+	float: center;
+}
+
+.email-title {
+	padding-left: 30px;
+	font-size: 20vw;
+}
+
+.email-entry {
+	position: relative;
+	left: 15%;
+	top: 40%;
+	display: inline-block;
+	height: 30vmax;
+	width: 50vmax;
+}
+
+.email.btn {
+  color: white;
   float: right;
 }
 
