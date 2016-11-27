@@ -21,17 +21,15 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
-    connect_gmail
+    email_service = EmailRetrievalService.new(@user)
     respond_to do |format|
       if @user.save
         set_session
         create_partner
         create_relationship
-        retrieve_emails
+        email_service = email_service.retrieve_emails(@partner, @relationship)
         format.html { redirect_to emails_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
