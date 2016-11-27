@@ -25,11 +25,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    connect_gmail
     respond_to do |format|
       if @user.save
+        set_session
         create_partner
         create_relationship
-        @gmail = Gmail.connect(@user.username, @user.password)
+        retrieve_emails(@partner)
         format.html { redirect_to root_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -76,6 +78,10 @@ class UsersController < ApplicationController
 
     def create_relationship
       @relationship = Relationship.create(user_id: @user.id, partner_id: @partner.id)
+    end
+
+    def set_session
+      session[:user_id] = @user.id
     end
 
 end
