@@ -5,19 +5,22 @@ class EmailRetrievalService
   end
 
   def retrieve_emails(partner, relationship)
-    @emails = @gmail.inbox.emails(from: partner.email)
+    @emails = @gmail.inbox.emails(from: partner.email).first(10)
     save_emails(partner, relationship)
     @email_count = @emails.count
   end
 
   def save_emails(partner, relationship)
     @emails.each do |email|
-      Email.create(subject: email.subject, user_id: @user.id, partner_id: partner.id, relationship_id: relationship.id, text: clean_email_text(email), sent_at: email.date)
+      new_email = Email.new(user_id: @user.id, partner_id: partner.id, relationship_id: relationship.id)
+      new_email.update(subject: email.subject, text: clean_email_text(email), sent_at: email.date)
     end
   end
 
   def clean_email_text(email)
-    email.body.decoded
+    text = ActionView::Base.full_sanitizer.sanitize(email.body.decoded)
+    text.gsub(/^.+text\/plain; charset=UTF-8/,'').gsub(/\\n/,'')
+    text = RbLibText.tokens(text).join(" ")
   end
 
 end
