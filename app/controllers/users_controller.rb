@@ -31,8 +31,8 @@ class UsersController < ApplicationController
         set_session
         create_partner
         create_relationship
-        retrieve_emails(@partner)
-        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+        retrieve_emails
+        format.html { redirect_to emails_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

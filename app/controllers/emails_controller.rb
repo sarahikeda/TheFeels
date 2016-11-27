@@ -2,8 +2,7 @@ class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
   def index
-    current_user
-    @emails = Email.all
+    @emails = Email.where(user_id: current_user)
   end
 
   def show
