@@ -15,16 +15,22 @@
  */
 
 body {
-  background-color: rgba(240, 0, 44, 0.68) !important;
+  background:
+    linear-gradient(
+    rgba(255, 0, 0, 0.85),
+    rgba(255, 0, 0, 0.15)
+  ),
+  url('/assets/email.jpg') !important;
+  background-size: 667px 445px !important;
+  background-repeat: no-repeat !important;
 }
 
 .email-form {
-	float: center;
+  float: center;
 }
 
 .email-title {
-	padding-left: 30px;
-	font-size: 20vw;
+  font-size: 20vw;
 }
 
 .email-entry {
