@@ -11,10 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+  <%= f.text_field :username, placeholder: "Username" %>
+  <br><br>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <br><br>
+  <%= f.text_field :email, placeholder: "Email" %>
+  <br><br>
+  <%= f.text_field :password, placeholder: "Password" %>
+  <br><br>
+  <%= f.fields_for :partner do |p| %>
+    <p> Partner Info</p>
+    <%= p.text_field :name, placeholder: "Partner's Name" %>
+    <br><br>
+    <%= p.text_field :email, placeholder: "Partner's Email" %>
+    <br><br>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
