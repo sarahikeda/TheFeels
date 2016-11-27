@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(version: 20160920174718) do
     t.integer  "user_id"
     t.integer  "partner_id"
     t.integer  "relationship_id"
+    t.datetime "sent_at"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "sentiment"
-    t.float    "score"
   end
 
   create_table "partners", force: :cascade do |t|
