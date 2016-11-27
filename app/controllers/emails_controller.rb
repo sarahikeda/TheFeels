@@ -1,35 +1,21 @@
-# require 'alchemyapi'
-
 class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
-  # GET /emails
-  # GET /emails.json
   def index
-    # alchemyapi = AlchemyAPI.new()
-    myText = "I hate "
-    # response = alchemyapi.sentiment("text", myText)
-    # puts "Sentiment: " + response["docSentiment"]["type"]
-    # binding.pry
+    current_user
     @emails = Email.all
   end
 
-  # GET /emails/1
-  # GET /emails/1.json
   def show
   end
 
-  # GET /emails/new
   def new
     @email = Email.new
   end
 
-  # GET /emails/1/edit
   def edit
   end
 
-  # POST /emails
-  # POST /emails.json
   def create
     @email = Email.new(email_params)
     respond_to do |format|
@@ -44,8 +30,6 @@ class EmailsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /emails/1
-  # PATCH/PUT /emails/1.json
   def update
     respond_to do |format|
       if @email.update(email_params)
@@ -58,8 +42,6 @@ class EmailsController < ApplicationController
     end
   end
 
-  # DELETE /emails/1
-  # DELETE /emails/1.json
   def destroy
     @email.destroy
     respond_to do |format|
