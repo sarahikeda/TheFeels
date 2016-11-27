@@ -11,7 +11,7 @@ gem 'bcrypt'
 gem 'pry'
 # sentiment analysis
 gem 'sentimental'
-
+gem 'rb_lib_text'
 #gmail
 gem 'gmail'
 
