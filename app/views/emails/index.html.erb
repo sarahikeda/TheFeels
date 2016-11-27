@@ -3,9 +3,9 @@
     <h1 class="email-title">Emotion.</h1>
     <div class="form-group">
       <%= form_for :email do |f| %>
-        <%= f.text_area :text, class: "email-entry", placeholder: "Paste your e-mail." %>
+        <%= f.text_area :text, class: "email-entry", placeholder: "Put your e-mail here." %>
         <br><br>
-        <%= button_to "Analyze", { controller: "emails", action: "create"}, class: "email btn" %>
+        <%= button_to "->", { controller: "emails", action: "create"}, class: "email btn" %>
         <br>
       <% end %>
     </div>
