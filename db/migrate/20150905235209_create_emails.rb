@@ -7,7 +7,7 @@ class CreateEmails < ActiveRecord::Migration
       t.integer :user_id
       t.integer :partner_id
       t.integer :relationship_id
-      t.datetime :created_at
+      t.datetime :sent_at
       t.timestamps null: false
     end
   end
