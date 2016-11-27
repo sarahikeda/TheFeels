@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "2.2.3"
 RAILS_VERSION = '~> 4.2.0'
 
-#Core server stuff
+#core server stuff
 gem 'rails', RAILS_VERSION
 gem "json"
 gem 'sqlite3'
@@ -11,6 +11,9 @@ gem 'bcrypt'
 gem 'pry'
 # sentiment analysis
 gem 'sentimental'
+
+#gmail
+gem 'gmail'
 
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.6'
