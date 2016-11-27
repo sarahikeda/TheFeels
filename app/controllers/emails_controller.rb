@@ -6,6 +6,7 @@ class EmailsController < ApplicationController
   end
 
   def show
+    analyze_sentiment
   end
 
   def new
