@@ -1,7 +1,7 @@
 class EmailRetrievalService
   def initialize(user)
     @user = user
-    @gmail = Gmail.connect!(user.email, user.password)
+    @gmail = Gmail.connect(:xoauth2, user.email, user.oauth_token)
   end
 
   def retrieve_emails(partner, relationship)
