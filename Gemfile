@@ -9,11 +9,14 @@ gem "json"
 gem 'sqlite3'
 gem 'bcrypt'
 gem 'pry'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # sentiment analysis
 gem 'sentimental'
 gem 'rb_lib_text'
-#gmail
+#gmail with oauth
 gem 'gmail'
+gem "omniauth-google-oauth2"
 
 gem 'devise'
 gem 'turbolinks'
