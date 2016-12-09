@@ -17,8 +17,6 @@
   <br><br>
   <%= f.text_field :email, placeholder: "Email" %>
   <br><br>
-  <%= f.text_field :password, placeholder: "Password" %>
-  <br><br>
   <%= f.fields_for :partner do |p| %>
     <p> Partner Info</p>
     <%= p.text_field :name, placeholder: "Partner's Name" %>
@@ -30,3 +28,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
