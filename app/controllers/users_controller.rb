@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to emails_path, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         create_partner
         create_relationship
         email_service = email_service.retrieve_emails(@partner, @relationship)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to emails_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -75,9 +75,5 @@ class UsersController < ApplicationController
     def create_relationship
       @relationship = Relationship.create(user_id: @user.id, partner_id: @partner.id)
     end
-
-    # def set_session
-    #   session[:user_id] = @user.id
-    # end
 
 end
