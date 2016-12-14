@@ -25,7 +25,7 @@ class PartnersController < ApplicationController
   # POST /partners.json
   def create
     @partner = Partner.new(partner_params)
-
+    @partner.user_id = current_user.id
     respond_to do |format|
       if @partner.save
         format.html { redirect_to @partner, notice: 'Partner was successfully created.' }
@@ -69,6 +69,6 @@ class PartnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def partner_params
-      params.require(:partner).permit(:name)
+      params.require(:partner).permit(:name, :email)
     end
 end
