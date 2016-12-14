@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         email_service = EmailRetrievalService.new(current_user)
-        create_partner
+        find_partner
         create_relationship
         email_service = email_service.retrieve_emails(@partner, @relationship)
         format.html { redirect_to emails_path, notice: 'User was successfully updated.' }
@@ -68,9 +68,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :username, :email, :password)
     end
 
-    def create_partner
-      partner_params = params[:user][:partner]
-      @partner = Partner.create(name: partner_params[:name], email: partner_params[:email])
+    def find_partner
+      @partner = Partner.find(params[:partner_name][:partner_id])
     end
 
     def create_relationship
