@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.text_field :name, placeholder: "Name", readonly: true %>
   <br><br>
-  <%= f.text_field :email, placeholder: "Email" %>
+  <%= f.text_field :email, placeholder: "Email", readonly: true %>
   <br><br>
+  <%= render 'partner' %>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

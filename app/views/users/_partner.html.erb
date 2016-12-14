@@ -1,12 +1,7 @@
 <div class='partners'>
   <% if @user.partners.any? %>
-    <% @user.partners.each do |partner| %>
-      <p> Existing Partner Info</p>
-      Partner name:<%= partner.name %>
-      <br><br>
-      Email: <%= partner.email %>
-      <br><br>
-    <% end %>
+    <p>Partners</p>
+    <%= select("partner_name", "partner_id", @user.partners.collect {|partner| [partner.name, partner.id]}) %>
   <% else %>
     <%= button_tag "Add Partner", class: "add-partner", data: { disable_with: "Please wait..."} %>
 
