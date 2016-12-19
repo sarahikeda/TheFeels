@@ -33,6 +33,8 @@
 .rangeslider__fill {
   background: #60ec6b;
   position: absolute;
+  animation-name: increase-width;
+  animation-duration: 20s;
 }
 .rangeslider--horizontal .rangeslider__fill {
   top: 0;
@@ -44,6 +46,8 @@
 }
 
 .rangeslider__handle {
+  animation-name: move-handle;
+  animation-duration: 20s;
   background: white;
   border: 1px solid #ccc;
   cursor: pointer;
