@@ -1,2 +1,6 @@
-<h1>Connect Account</h1>
-<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+<div class="login">
+  <div id="controls">
+    <label class="range-label"><em>Negative</em><input class="sentiment-spacing" type="range" min="10" max="200" value="50"></label>
+  </div>
+  <h1 id="google-login"><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></h1>
+</div>
