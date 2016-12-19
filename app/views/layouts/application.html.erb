@@ -8,7 +8,9 @@
 </head>
 <body>
 <div class='container'>
-  <%= link_to 'TheFeels', edit_user_path(current_user) %>
+  <% if current_user %>
+    <%= link_to 'TheFeels', edit_user_path(current_user) %>
+  <% end %>
   <%= yield %>
 </div>
 </body>
