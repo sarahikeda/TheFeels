@@ -15,15 +15,40 @@
  */
 
 body {
-  background:
-    linear-gradient(
-    rgba(255, 0, 0, 0.85),
-    rgba(255, 0, 0, 0.15)
-  ),
-  url('/assets/email.jpg') !important;
-  background-size: 667px 445px !important;
-  background-repeat: no-repeat !important;
+  font-family: "open sans", sans-serif;
+  background-image: url(/assets/alchemy.gif);
+  background-size: 80%;
+ }
+
+ a {
+   font-family: "open sans", sans-serif;
+ }
+
+.login {
+  background-color: white;
+  margin: 60px auto;
+  padding: 30px;
+  width: 80%;
 }
+
+#google-login {
+  padding-left: 20px;
+  padding-top: 20px;
+  float: center;
+}
+
+ .range-label {
+   display: inline;
+   margin-bottom: 30px;
+ }
+
+ label em {
+   color: #aaa;
+   display: inline-block;
+   font-size: 10px;
+   font-style: normal;
+   text-transform: uppercase;
+ }
 
 .email-form {
   float: center;
