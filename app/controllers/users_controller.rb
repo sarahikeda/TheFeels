@@ -69,7 +69,15 @@ class UsersController < ApplicationController
     end
 
     def find_partner
-      @partner = Partner.find(params[:partner_name][:partner_id])
+      if params[:partner_name]
+        @partner = Partner.find(params[:partner_name][:partner_id])
+      else
+        create_partner
+      end
+    end
+
+    def create_partner
+      @partner = Partner.create(name: params[:partner][:name], email: params[:partner][:email])
     end
 
     def create_relationship
