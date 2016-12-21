@@ -8,4 +8,12 @@ $(document).ready(function(){
   $(".sentiment-spacing").rangeslider({
     polyfill: false
   });
+
+  $(".partners-list").change(function(){
+    var partnerId = this.value
+    $.ajax({
+      url: '/emails',
+      data: {"partner": partnerId}
+    })
+  })
 });
