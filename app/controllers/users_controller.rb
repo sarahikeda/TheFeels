@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @partner = Partner.new
   end
 
   # GET /users/new
@@ -37,11 +38,19 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        email_service = EmailRetrievalService.new(current_user)
-        find_partner
-        create_relationship
-        email_service = email_service.retrieve_emails(@partner, @relationship)
-        format.html { redirect_to emails_path, notice: 'User was successfully updated.' }
+        @partner = Partner.find(params[:partner_name][:partner_id])
+        email = Email.where(user_id: current_user, partner_id: @partner.id)
+        if email.empty?
+          email_service = EmailRetrievalService.new(current_user)
+          if params[:partner_name]
+            find_partner
+          else
+            create_partner
+          end
+          create_relationship
+          email_service = email_service.retrieve_emails(@partner, @relationship)
+        end
+        format.html { redirect_to emails_path, partner: @partner.id }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -69,11 +78,7 @@ class UsersController < ApplicationController
     end
 
     def find_partner
-      if params[:partner_name]
-        @partner = Partner.find(params[:partner_name][:partner_id])
-      else
-        create_partner
-      end
+      @partner = Partner.find(params[:partner_name][:partner_id])
     end
 
     def create_partner

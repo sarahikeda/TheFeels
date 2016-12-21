@@ -2,7 +2,13 @@ class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
   def index
-    @emails = Email.where(user_id: current_user)
+    partner = Partner.find(params[:partner])
+    @emails = Email.where(user_id: current_user, partner_id: partner.id)
+    if @emails.empty?
+      email_service = EmailRetrievalService.new(current_user)
+      email_service = email_service.retrieve_emails(partner)
+    end
+    render 'index'
   end
 
   def show
