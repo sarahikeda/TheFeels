@@ -9,7 +9,7 @@
 <body>
 <div class='container'>
   <% if current_user %>
-    <%= link_to 'TheFeels', edit_user_path(current_user) %>
+    <%= link_to 'TheFeels', user_path(current_user) %>
   <% end %>
   <%= yield %>
 </div>
