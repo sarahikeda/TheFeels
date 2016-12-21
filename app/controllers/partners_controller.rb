@@ -28,8 +28,9 @@ class PartnersController < ApplicationController
     @partner.user_id = current_user.id
     respond_to do |format|
       if @partner.save
-        format.html { redirect_to @partner, notice: 'Partner was successfully created.' }
-        format.json { render :show, status: :created, location: @partner }
+        create_relationship
+        format.html { redirect_to user_path(current_user), notice: 'Partner was successfully created.' }
+        format.json { render user_path(current_user), status: :created, location: @partner }
       else
         format.html { render :new }
         format.json { render json: @partner.errors, status: :unprocessable_entity }
@@ -67,7 +68,11 @@ class PartnersController < ApplicationController
       @partner = Partner.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
+    def create_relationship
+      @relationship = Relationship.create(user_id: current_user.id, partner_id: @partner.id)
+    end
+
     def partner_params
       params.require(:partner).permit(:name, :email)
     end
