@@ -12,20 +12,22 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
- @keyframes increase-width {
-   from {width: 0px;}
-   to {width: 300px;}
- }
 
- @keyframes move-handle {
-   from {left: 0px;}
-   to {left: 260px;}
- }
+@keyframes increase-width {
+ from {width: 0px;}
+ to {width: 100%;}
+}
+
+@keyframes move-handle {
+ from {left: -10px;}
+ to {left: 100%;;}
+}
 
 body {
   font-family: "open sans", sans-serif;
-  background-image: url(/assets/alchemy.gif);
+  /*background-image: url(/assets/alchemy.gif);*/
   background-size: 80%;
  }
 
@@ -33,12 +35,20 @@ body {
    font-family: "open sans", sans-serif;
  }
 
+.fa-landing {
+  color: #716666;
+  padding: 15px;
+}
+
 .login {
-  background-color: white;
   margin: 150px auto;
   padding: 30px;
 }
 
+.login h1 {
+  font-family: "open sans", sans-serif;
+  font-size: 60px;
+}
 
 #google-login {
   padding-left: 20px;
