@@ -14,63 +14,59 @@
  *= require_self
  *= require font-awesome
  */
+ @font-face {
+   font-family: "Somatic-Rounded";
+   src: url(/assets/Somatic-Rounded.otf) format("truetype");
+ }
 
 @keyframes increase-width {
  from {width: 0px;}
- to {width: 100%;}
+ to {width: 90%;}
 }
 
 @keyframes move-handle {
  from {left: -10px;}
- to {left: 100%;;}
+ to {left: 90%;}
+}
+
+body, a {
+  font-family: "Somatic-Rounded";
 }
 
 body {
-  font-family: "open sans", sans-serif;
-  /*background-image: url(/assets/alchemy.gif);*/
-  background-size: 80%;
+  background-image: url(/assets/email.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
  }
 
- a {
-   font-family: "open sans", sans-serif;
+#google-login a {
+   margin-top: 40px;
+   float: right;
+   color: white;
  }
 
-.fa-landing {
-  color: #716666;
-  padding: 15px;
+.landing-content {
+   margin: 120px 0 0 35px;
+ }
+
+.landing-content h1 a, .landing-content h1 a:hover{
+   color: #f5f3f5;
+   font-size: 100px;
+   background-color: transparent;
+   text-decoration: none;
+ }
+
+#explanation p {
+  font-family: "Somatic-Rounded";
+  font-size: 20px;
+  color: #f5f3f5;
+  padding-left: 40px;
 }
 
-.login {
-  margin: 150px auto;
-  padding: 30px;
+.fa-heart {
+  color: #cc0f6c;
+  padding-left: 120px;
 }
-
-.login h1 {
-  font-family: "open sans", sans-serif;
-  font-size: 60px;
-}
-
-#google-login {
-  padding-left: 20px;
-  padding-top: 20px;
-  float: center;
-}
-
- .range-negative {
-   display: inline;
- }
-
- .range-positive {
-  float: right;
- }
-
- label em {
-   color: #aaa;
-   display: inline-block;
-   font-size: 10px;
-   font-style: normal;
-   text-transform: uppercase;
- }
 
 .email-form {
   float: center;
