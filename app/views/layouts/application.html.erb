@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TheFeels</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class='container'>
-  <% if current_user %>
-    <%= link_to 'TheFeels', user_path(current_user) %>
-  <% end %>
-  <%= yield %>
-</div>
-</body>
+  <head>
+    <title>TheFeels</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class='container'>
+      <% if current_user %>
+        <!-- <%= link_to 'TheFeels', user_path(current_user) %> -->
+      <% end %>
+    </div>
+      <%= yield %>
+  </body>
 </html>
