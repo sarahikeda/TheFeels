@@ -1,13 +1,15 @@
-<div class='partners'>
-  <% if @user.partners.any? %>
+<% if @user.partners.any? %>
+  <div class='partners'>
     <%= form_for @user do |f| %>
-      <h2>Select a partner to analyze:</h2>
+      <p>Select a partner to analyze:</p>
       <%= f.collection_select :id, @user.partners, :id, :name, {include_blank: 'Select Partner'}, {class: "partners-list"} %>
+      <br>
+      <%= link_to 'Analyze Emails', emails_path, {class: "analyze-partner"} %>
     <% end %>
   <% else %>
     <%= button_tag "Add Partner", class: "add-partner", data: { disable_with: "Please wait..."} %>
     <div class='new-partner'>
       <%= render 'partners/form' %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
