@@ -1,0 +1,22 @@
+.landing-content {
+   margin: 120px 0 0 35px;
+ }
+
+.landing-content h1 a, .landing-content h1 a:hover{
+   color: #f5f3f5;
+   font-size: 100px;
+   background-color: transparent;
+   text-decoration: none;
+ }
+
+#explanation p {
+  font-family: "Somatic-Rounded";
+  font-size: 20px;
+  color: #f5f3f5;
+  padding-left: 40px;
+}
+
+.fa-heart {
+  color: #cc0f6c;
+  padding-left: 120px;
+}

@@ -1,0 +1,17 @@
+#navigation-links {
+  margin-top: 20px;
+}
+
+#navigation-links li{
+  display: inline;
+}
+
+#navigation-links a {
+  color: #f5f3f5;
+  list-style-type: none;
+}
+
+#login a {
+  margin-top: 20px;
+  float: right;
+ }
