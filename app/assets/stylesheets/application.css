@@ -19,16 +19,6 @@
    src: url(/assets/Somatic-Rounded.otf) format("truetype");
  }
 
-@keyframes increase-width {
- from {width: 0px;}
- to {width: 90%;}
-}
-
-@keyframes move-handle {
- from {left: -10px;}
- to {left: 90%;}
-}
-
 body, a {
   font-family: "Somatic-Rounded";
 }
