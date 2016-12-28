@@ -8,10 +8,17 @@
   </head>
   <body>
     <div class='container'>
-      <% if current_user %>
-        <!-- <%= link_to 'TheFeels', user_path(current_user) %> -->
-      <% end %>
-    </div>
+      <div id='navigation-links'>
+        <ul>
+          <% if current_user %>
+            <li><%= link_to 'TheFeels', user_path(current_user) %></li>
+            <li id='login'><%= link_to('Sign Out', signout_path) %></li>
+          <% else %>
+            <li id='login'><%= link_to "Sign In", "/auth/google_oauth2", id: "sign_in" %>
+          <% end %>
+        </ul>
+      </div>
       <%= yield %>
+    </div>
   </body>
 </html>
