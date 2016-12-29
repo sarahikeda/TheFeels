@@ -1,15 +1,17 @@
-<ul>
-  <% @emails.each do |email| %>
-  <li>Email:
-    <%= link_to(email_path(email.id)) do %>
-      <%= email.subject %>
-      <br>
-      <%= truncate(email.text, length: 100) %>
+<div class='info'>
+  <ul>
+    <% @emails.each do |email| %>
+    <li>Email:
+      <%= link_to(email_path(email.id)) do %>
+        <%= email.subject %>
+        <br>
+        <%= truncate(email.text, length: 100) %>
+      <% end %>
+    </li>
+    <br>
     <% end %>
-  </li>
-  <br>
-  <% end %>
-  <br>
-</ul>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <br>
+  </ul>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+</div>
