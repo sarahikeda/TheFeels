@@ -17,7 +17,6 @@
   width: 100%;
   height: 1px;
   background: black;
-  margin-bottom: 10px;
 }
 
 #profile-picture {
@@ -55,7 +54,7 @@
   border: 1px solid black;
   padding: 5px;
   text-align: center;
-  margin-left: 5px;
+  margin-left: 15px;
   margin-right: 15px;
   font-size: 15px;
 }
@@ -69,5 +68,7 @@
 .add-partner {
   font-family: 'AlternateGothicNo3DRegular';
   text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid black;
 
 }
