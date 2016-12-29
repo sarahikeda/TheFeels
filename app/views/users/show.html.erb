@@ -1,7 +1,9 @@
-<div class="info">
+<div class='info'>
   <%= render 'form' %>
-  <%= render 'partner' %>
-  <br>
+</div>
+<%= render 'partner' %>
+<br>
+<div id='navigation-links'>
   <%= link_to 'Edit', edit_user_path(@user) %> |
   <%= link_to 'Back', users_path %>
 </div>
