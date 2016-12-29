@@ -4,16 +4,4 @@ $(document).ready(function(){
     $('.new-partner').show();
     $('.add-partner').hide();
   });
-
-  $(".sentiment-spacing").rangeslider({
-    polyfill: false
-  });
-
-  $(".partners-list").change(function(){
-    var partnerId = this.value
-    $.ajax({
-      url: '/emails',
-      data: {"partner": partnerId}
-    })
-  })
 });
