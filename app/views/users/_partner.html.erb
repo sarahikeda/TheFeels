@@ -1,12 +1,19 @@
 <% if @user.partners.any? %>
   <div class='partners'>
-    <%= form_for @user do |f| %>
-      <p>Select a partner to analyze:</p>
-      <%= f.collection_select :id, @user.partners, :id, :name, {include_blank: 'Select Partner'}, {class: "partners-list"} %>
-      <br>
-      <%= link_to 'Analyze Emails', emails_path, {class: "analyze-partner"} %>
-    <% end %>
-  <% else %>
+    <p>Choose a Partner</p>
+    <br>
+    <ul class='partner-info'>
+      <% @user.partners.each do |partner| %>
+        <%= link_to emails_path(partner: partner.id), id: 'partner-name' do %>
+          <%= partner.name %>
+        <% end %>
+      <% end %>
+    </ul>
+    <ul class='partner-info'>
+      <% @user.partners.each do |partner| %>
+        <li><%= image_tag('/assets/alec.jpg', id: 'partner-picture') %></li>
+      <% end %>
+    </ul>
     <%= button_tag "Add Partner", class: "add-partner", data: { disable_with: "Please wait..."} %>
     <div class='new-partner'>
       <%= render 'partners/form' %>
