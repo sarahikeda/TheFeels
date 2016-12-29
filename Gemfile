@@ -6,7 +6,6 @@ RAILS_VERSION = '~> 4.2.0'
 #core server stuff
 gem 'rails', RAILS_VERSION
 gem 'json'
-gem 'sqlite3'
 gem 'bcrypt'
 gem 'pry'
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -30,3 +29,10 @@ gem 'jquery-mousewheel-rails'
 
 #styling
 gem 'font-awesome-rails'
+
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
