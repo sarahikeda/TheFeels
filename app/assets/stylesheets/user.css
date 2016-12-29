@@ -1,0 +1,64 @@
+.profile {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  color: black;
+}
+
+#name {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.horizontal-line {
+  width: 100%;
+  height: 1px;
+  background: black;
+  margin-bottom: 10px;
+}
+
+#profile-picture {
+  margin-left: 20px;
+  max-width: 25%;
+  border-radius: 100%;
+  padding: 10px;
+  display: inline;
+}
+
+.user-stats {
+  float: right;
+  display: inline;
+  margin: 20px 60px 0 0;
+}
+
+.partner-info li {
+  display: inline;
+  list-style-type: none;
+}
+
+.partners {
+  padding: 20px;
+  background-color: #bab1ff;
+}
+
+.partners p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+}
+
+#partner-name {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+#partner-picture {
+  max-width: 15%;
+  border-radius: 100%;
+  padding: 5px;
+}
