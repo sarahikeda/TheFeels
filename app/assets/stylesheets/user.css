@@ -1,15 +1,16 @@
-.profile {
+.info {
   background-color: white;
   margin: 20px;
   padding: 20px;
   color: black;
+  text-transform: uppercase;
 }
 
 #name {
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
+  font-family: 'AlternateGothicNo3DRegular';
   font-weight: bold;
-  font-family: 'Nunito Sans', sans-serif;
 }
 
 .horizontal-line {
@@ -31,6 +32,7 @@
   float: right;
   display: inline;
   margin: 20px 60px 0 0;
+  text-transform: uppercase;
 }
 
 .partner-info li {
@@ -44,8 +46,9 @@
 }
 
 .partners p {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 20px;
+  font-family: 'AlternateGothicNo3DRegular';
+  text-transform: uppercase;
+  font-size: 24px;
 }
 
 #partner-name {
@@ -61,4 +64,10 @@
   max-width: 15%;
   border-radius: 100%;
   padding: 5px;
+}
+
+.add-partner {
+  font-family: 'AlternateGothicNo3DRegular';
+  text-transform: uppercase;
+
 }
