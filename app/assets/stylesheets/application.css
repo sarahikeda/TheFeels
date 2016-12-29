@@ -19,6 +19,11 @@
    src: url(/assets/Somatic-Rounded.otf) format("truetype");
  }
 
+ @font-face {
+   font-family: "AlternateGothicNo3DRegular";
+   src: url(/assets/AlternateGothicNo3DRegular.otf) format("truetype");
+ }
+
 *{
   font-family: "Somatic-Rounded";
 }
