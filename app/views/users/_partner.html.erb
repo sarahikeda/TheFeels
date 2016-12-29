@@ -14,9 +14,9 @@
         <li><%= image_tag('/assets/alec.jpg', id: 'partner-picture') %></li>
       <% end %>
     </ul>
+<% end %>
     <%= button_tag "Add Partner", class: "add-partner", data: { disable_with: "Please wait..."} %>
     <div class='new-partner'>
       <%= render 'partners/form' %>
     </div>
   </div>
-<% end %>
