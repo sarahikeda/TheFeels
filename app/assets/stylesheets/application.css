@@ -19,7 +19,7 @@
    src: url(/assets/Somatic-Rounded.otf) format("truetype");
  }
 
-body, a {
+*{
   font-family: "Somatic-Rounded";
 }
 
