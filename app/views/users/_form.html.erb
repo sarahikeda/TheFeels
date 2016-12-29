@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this user from being saved:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |message| %>
@@ -10,9 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.text_field :name, placeholder: "Name", readonly: true %>
-  <br><br>
-  <%= f.text_field :email, placeholder: "Email", readonly: true %>
-  <br><br>
 <% end %>
+<h1 id='name'><%= @user.name %></h1>
+<div class='info'>
+  <div id='profile-picture'>
+    <%= image_tag('/assets/halloween.jpg', id: 'profile-picture') %>
+  </div>
+  <div class='user-stats'>
+    <p><%= @user.email %></p>
+    <p>Number of Partners: <%= @user.partners.count %></p>
+  </div>
+  <div class='horizontal-line'></div>
+</div>
