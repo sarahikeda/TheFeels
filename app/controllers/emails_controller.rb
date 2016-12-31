@@ -14,6 +14,7 @@ class EmailsController < ApplicationController
   end
 
   def show
+    @partner = Partner.find(@email.partner_id)
   end
 
   def new

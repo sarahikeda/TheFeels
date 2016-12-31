@@ -17,5 +17,6 @@
     <p>Sent On: <%=@email.sent_at %></p>
   </div>
 </div>
-  <%= link_to 'Edit', edit_email_path(@email) %> |
-  <%= link_to 'Back', emails_path %>
+
+<%= link_to 'Home', edit_user_path(@user) %>
+<%= link_to 'Back', emails_path(partner: @partner.id) %>
