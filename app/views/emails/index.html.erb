@@ -1,4 +1,13 @@
+<%= link_to 'Home', user_path(current_user) %>
+
 <div class='info'>
+  <%= pie_chart @emails.group(:sent_at).count, colors: ["#494a49", "#fb44a0", "#cec8c8"] %>
+
+  <p>Sentiment</p>
+  <%= pie_chart @emails.group(:sentiment).count, colors: ["#494a49", "#fb44a0", "#cec8c8"] %>
+  <p>Sentiment with all partners</p>
+  <%= pie_chart Email.where(user_id: current_user.id).group(:sentiment).count, colors: ["#494a49", "#fb44a0", "#cec8c8"] %>
+
   <ul>
     <% @emails.each do |email| %>
     <li>Subject :
