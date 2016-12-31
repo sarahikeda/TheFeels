@@ -19,11 +19,16 @@ class EmailRetrievalService
 
   def clean_email_text(email)
     text = ActionView::Base.full_sanitizer.sanitize(email.body.decoded)
-    shortened_text = shorten_text(text)
+    only_text = remove_image(text)
+    shortened_text = shorten_text(only_text)
     cleaned_headers = remove_headings(shortened_text)
     cleaned_spaces = remove_spaces(cleaned_headers)
     cleaned_text = remove_numbers(cleaned_spaces)
     return RbLibText.tokens(cleaned_text).join(" ")
+  end
+
+  def remove_image(text)
+    text =~ /Content-Type: image\/jpeg/ ? '' : text
   end
 
   def shorten_text(text)
