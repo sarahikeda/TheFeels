@@ -1,11 +1,16 @@
 <div class='info'>
   <ul>
     <% @emails.each do |email| %>
-    <li>Email:
+    <li>Subject :
       <%= link_to(email_path(email.id)) do %>
         <%= email.subject %>
         <br>
         <%= truncate(email.text, length: 100) %>
+        <% if email.sentiment == "positive" %>
+          <p id= 'positive'>Positive</p>
+        <% else %>
+          <p id= 'negative'>Negative</p>
+        <% end %>
       <% end %>
     </li>
     <br>
