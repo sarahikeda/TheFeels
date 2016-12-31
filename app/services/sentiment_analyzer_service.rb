@@ -4,13 +4,10 @@ class SentimentAnalyzerService
     @analyzer.load_defaults
   end
 
-  def get_sentiment(email)
-    email.sentiment = @analyzer.sentiment(email.text)
-    email.save
+  def get_sentiment(emails)
+    emails.each do |email|
+      email.update(sentiment: @analyzer.sentiment(email.text) , score: @analyzer.score(email.text))
+    end
   end
 
-  def get_sentiment_score(email)
-    email.score = @analyzer.score(email.text)
-    email.save
-  end
 end
