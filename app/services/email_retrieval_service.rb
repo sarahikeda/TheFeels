@@ -5,13 +5,13 @@ class EmailRetrievalService
   end
 
   def retrieve_emails(partner)
-    @emails = @gmail.inbox.emails(from: partner.email).last(10)
-    save_emails(partner)
-    @email_count = @emails.count
+    emails = @gmail.inbox.emails(from: partner.email).last(10)
+    save_emails(partner, emails)
+    emails
   end
 
-  def save_emails(partner)
-    @emails.each do |email|
+  def save_emails(partner, emails)
+    emails.each do |email|
       new_email = Email.new(user_id: @user.id, partner_id: partner.id)
       new_email.update(subject: email.subject, text: clean_email_text(email), sent_at: email.date)
     end
@@ -19,14 +19,19 @@ class EmailRetrievalService
 
   def clean_email_text(email)
     text = ActionView::Base.full_sanitizer.sanitize(email.body.decoded)
-    cleaned_headers = remove_headings(text)
+    shortened_text = shorten_text(text)
+    cleaned_headers = remove_headings(shortened_text)
     cleaned_spaces = remove_spaces(cleaned_headers)
     cleaned_text = remove_numbers(cleaned_spaces)
     return RbLibText.tokens(cleaned_text).join(" ")
   end
 
+  def shorten_text(text)
+    text.truncate(200000)
+  end
+
   def remove_headings(text)
-    text.gsub(/.*Content-Transfer-Encoding/,'').gsub(/.*Content-Type.*[uUtTfF]-8/,'')
+    text.gsub(/.*Content-Transfer-Encoding/,'').gsub(/.*Content-Type.*[uUtTfF]-8/,'').gsub(/ application\/pdf.*/,'').gsub(/Content-Disposition.*/,'')
   end
 
   def remove_spaces(text)
