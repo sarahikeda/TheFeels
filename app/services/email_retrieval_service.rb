@@ -18,7 +18,8 @@ class EmailRetrievalService
   end
 
   def clean_email_text(email)
-    text = ActionView::Base.full_sanitizer.sanitize(email.body.decoded)
+    body = email.text_part ? email.text_part.body.raw_source : email.body.decoded
+    text = ActionView::Base.full_sanitizer.sanitize(body)
     only_text = remove_image(text)
     shortened_text = shorten_text(only_text)
     cleaned_headers = remove_headings(shortened_text)
