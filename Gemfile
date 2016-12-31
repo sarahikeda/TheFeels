@@ -30,6 +30,10 @@ gem 'jquery-mousewheel-rails'
 #styling
 gem 'font-awesome-rails'
 
+#show sentiment with graphs
+gem 'chartkick'
+#group emails
+gem 'groupdate'
 group :production do
   gem 'pg'
 end
