@@ -2,17 +2,18 @@ class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
   def index
-    partner = Partner.find(params[:partner])
+    partner = Partner.find(params[:partner]) || current_user.partners.first.id
     @emails = Email.where(user_id: current_user, partner_id: partner.id)
     if @emails.empty?
       email_service = EmailRetrievalService.new(current_user)
-      email_service = email_service.retrieve_emails(partner)
+      email_service.retrieve_emails(partner)
+      @emails = Email.where(user_id: current_user, partner_id: partner.id)
+      analyze_sentiment(@emails)
     end
     render 'index'
   end
 
   def show
-    analyze_sentiment
   end
 
   def new
@@ -65,10 +66,9 @@ class EmailsController < ApplicationController
       params.require(:email).permit(:name, :text, :user_id, :partner_id, :relationship_id)
     end
 
-    def analyze_sentiment
+    def analyze_sentiment(emails)
       sentiment_service = SentimentAnalyzerService.new
-      sentiment_service.get_sentiment(@email)
-      sentiment_service.get_sentiment_score(@email)
+      sentiment_service.get_sentiment(emails)
     end
 
 end
